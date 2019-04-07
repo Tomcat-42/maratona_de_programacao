@@ -2,23 +2,19 @@
 
 int main()
 {
-	int i,pos=0,num[6]={};;
+	int i,par=0,num[6]={};;
 
-	for(i=0;i<6;i++)
+	for(i=0;i<5;i++)
 	{
 		scanf("%d",&num[i]);
-		if(!num[i])
-		{
-			continue;
-		}
 		
-		if(num[i]>0)
+		if(num[i]%2==0)
 		{
-			pos++;
+			par++;
 		}
 		
 
 	}
-	printf("%d valores positivos\n",pos);
+	printf("%d valores pares\n",par);
 }
 
