@@ -8,7 +8,8 @@ int main()
 
 	for(i=0;i<n;i++)
 	{
-		scanf("%d",&n);
-		printf("%s%s%s", ((n==0)?(printf("NULL\n") : (printf(""))))  ,((n%2==0)?(printf("EVEN\n"):(printf("ODD\n"))))                  );
+		scanf("%d",&x);
+		if(x==0){printf("NULL\n");}else{printf("%s%s", (x%2==0? "EVEN " : "ODD ") , ( x>0 ? "POSITIVE\n" : "NEGATIVE\n") );}
+		
 	}
 }
