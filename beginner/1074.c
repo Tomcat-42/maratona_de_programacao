@@ -1,3 +1,5 @@
+//Pablo A.S. Hugen
+//Dado n valores, esse algoritmo se cada um deles é nulo, par-impar e positivo-negativo
 #include <stdio.h>
 
 int main()

@@ -1,3 +1,5 @@
+//Pablo Alessandro Santos Hugen
+//Dado o salário de um funcionário , esse programa calcula o reajuste de acordo com a faixa
 #include <stdio.h>
 
 int main()
@@ -5,6 +7,7 @@ int main()
 	float salario;
 	scanf("%f",&salario);
 
+	//Calcula o o novo salário e o valor do reajuste
 	if(salario > 0.00 && salario <= 400.00 )
 	{
 		printf("Novo salario: %.2f\nReajuste ganho: %.2f\nEm percentual: 15 %%\n",(salario + (salario * 0.15)),(salario * 0.15));

@@ -1,3 +1,5 @@
+//Pablo Alessandro Santos Hugen
+//Dado 3 números ,esse algoritmo mostra a média ponderada deles.
 #include <stdio.h>
 
 int main()

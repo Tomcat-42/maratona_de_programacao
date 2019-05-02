@@ -1,3 +1,5 @@
+//Pablo Alessandro Santos Hugen
+//Dado um número N,esse algoritmo mostra a tabuada de N.
 #include <stdio.h>
 
 int main()

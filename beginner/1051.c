@@ -1,12 +1,16 @@
+//Pablo Alessandro Santos Hugen
+//Dado o sálario de um habitante de Lisarb(kk?),esse algoritmo calcula o valor do imposto de acordo com a faixa de renda
+
 #include <stdio.h>
 
 int main()
 {
 	float salario,faixa0=0.0,faixa1=0.0,faixa2=0.0,faixa3=0.0;
-
+	
+	//lê o salário
 	scanf("%f",&salario);
 
-
+	//calcula o imposto
 	if(salario > 0.0 && salario <= 2000.0)
 	{
 		printf("Isento\n");
@@ -33,6 +37,4 @@ int main()
 		faixa0 = (salario - (faixa2 + 1000));
 		printf("R$ %.2f\n", ((faixa1 * 0.08) + (faixa2 * 0.18) + (faixa3 * 0.28)));
 	}
-
-
 }

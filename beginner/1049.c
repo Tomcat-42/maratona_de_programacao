@@ -1,11 +1,13 @@
+//Pablo Alessandro Santos Hugen
+//Dados três atributos, esse programa printa o tipo de animal
 #include <stdio.h>
 #include <string.h>
+
 int main()
 {
 	char coluna[20],classe[20],alimen[20];
 	scanf("%s %s %s",coluna,classe,alimen);
 
-	//printf("%s\n%s\n%s\n",coluna,classe,alimen);
 	
 	if(!strcmp(coluna,"vertebrado"))
 	{

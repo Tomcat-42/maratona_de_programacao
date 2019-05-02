@@ -1,3 +1,5 @@
+//Pablo A.S. Hugen
+//Dado um valor n, esse algoritmo printa 6 valores consecutivos a partir de n,inclusive
 #include <stdio.h>
 
 int main()

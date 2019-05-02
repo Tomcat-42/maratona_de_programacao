@@ -1,3 +1,5 @@
+//Pablo Alessandro Santos Hugen
+//Printa a sequência especificada
 #include <stdio.h>
 
 int main()

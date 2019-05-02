@@ -1,3 +1,5 @@
+//Pablo Alessandro Santos Hugen
+//Dadas diferentes cobaias, esse algoritmo mostra a porcentagem de cada uma.
 #include <stdio.h>
 
 int main()

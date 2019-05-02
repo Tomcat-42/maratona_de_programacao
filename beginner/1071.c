@@ -1,3 +1,6 @@
+//Pablo A.S. Hugen
+//Dado dois valores, esse algoritmo mostra a soma dos números ímpares entre eles
+
 #include <stdio.h>
 
 int main()

@@ -1,3 +1,5 @@
+//Pablo Alessandro Santos Hugen
+//Dodo 100 valores inteiros, esse algoritmo mostra o maior entre eles e a posição
 #include <stdio.h>
 
 int main()

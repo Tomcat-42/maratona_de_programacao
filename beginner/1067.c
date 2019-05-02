@@ -1,3 +1,5 @@
+//Pablo A.S. Hugen
+//Dado um número n, esse algoritmo printa os números ímpares entre 1 e n,inclusive.
 #include <stdio.h>
 
 int main()
@@ -5,8 +7,8 @@ int main()
 	int num,i;
 	scanf("%d",&num);
 	
-	for(i=1;i<=num;i++)
+	for(i=1;i<=num;i+=2)
 	{
-		(i%2==0) ? printf("") : printf("%d\n",i);
+		printf("%d\n",i);
 	}
 }

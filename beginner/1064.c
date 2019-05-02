@@ -1,3 +1,5 @@
+//Pablo A.S. Hugen
+//Dado 6 valores, esse algoritmo printa quantos deles são positivos e a média dos positivos
 #include <stdio.h>
 
 int main()
@@ -16,6 +18,4 @@ int main()
 	media=(media/pos);
 
 	printf("%d valores positivos\n%.1f\n",pos,media);
-
-
 }

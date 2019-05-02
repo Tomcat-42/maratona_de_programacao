@@ -1,3 +1,5 @@
+//Pablo Alessandro Santos Hugen
+//Dado o número de DDD do telefone, esse programa printa A cidade cadastrada
 #include <stdio.h>
 
 int main()

@@ -1,3 +1,6 @@
+//Pablo A.S. Hugen
+//Dado um valor N, esse algoritmo mostra os quadrados dos pares entre 1 e N,inclusive
+
 #include <stdio.h>
 
 int main()

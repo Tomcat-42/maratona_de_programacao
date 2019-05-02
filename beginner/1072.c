@@ -1,3 +1,6 @@
+//Pablo A.S. Hugen
+//Dado n valores, esse algoritmo mostra quanos deles estão dentro ou fora do intervalo [10,20]
+
 #include <stdio.h>
 
 int main()
