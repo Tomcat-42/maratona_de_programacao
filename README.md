@@ -1,2 +1,4 @@
-# uri-online-judge
-Um lugar pra guardar minhas implementações dos exercícios do site https://www.urionlinejudge.com.br
+# maratona_de_programacao
+Um lugar pra guardar minhas implementações de exercícios e problemas de programação.
+
+![Alt Text](https://i.kym-cdn.com/photos/images/newsfeed/001/419/870/3a2.gif)
