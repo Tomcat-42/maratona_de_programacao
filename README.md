@@ -6,5 +6,7 @@ Um lugar pra guardar minhas implementações de exercícios e problemas de progr
 **Links**
 
 [UriOnlineJugde](https://www.urionlinejudge.com.br/judge/pt/profile/330092)
+
 [SpojOnlineJudge](https://www.spoj.com/users/tomcat_42/)
+
 [HackerHeart](http://www.hackerearth.com/@Tomcat_42)
