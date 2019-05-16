@@ -10,7 +10,7 @@ Uma importante propiedade do MDC é que ao subtrair o menor número do maior , o
 >mdc(28,42)   = 14 -> 42  - 28  = 14\
 >mdc(28,14)   = 14 -> 28  - 14  = 14\
 >mdc(14,14)   = 14 -> 14  - 14  = 0\
->mdc(14,0)    = **14**\
+>mdc(14,0)    = **14**
 
 O [Algoritmo de Euclides](https://pt.wikipedia.org/wiki/Algoritmo_de_Euclides) utiliza esse princípio como base para encontrar o MDC entre dois números dados,usando que **mdc( x , y ) = mdc( y , (x%y) )**.
 
