@@ -1,58 +1,61 @@
+//Exemplo de problema utilizando o array de soma acumulada
 #include <stdio.h>
 
-void sum(int *array, int *soma,int n);
-int interval(int s[],int i,int j);
+//Constrói um Vetor de soma acumulada
+void csCons(int *array,int *csArray ,int n);
+//Retorna a soma do intervalo [i,j]
+int csQuery(int *csArray,int i,int j);
+//lê um array
+void scanArray(int *csArray,int n);
 
 int main()
-{	
-	//vetor
-	int n,v[1000000],s[1000000];
-	//querry
-	int q;
-	int i,j,k;	
-	
+{
+	//Arrays
+	int array[100000],csArray[100000];
+	//N de elementos do array e N de consultas
+	int n,q;
+	//intervalos
+	int i,j;
+	//contador
+	int k;
+
 	scanf("%d",&n);
-	for(k=0;k<n;k++)
-	{
-		scanf("%d",&v[k]);
-	}
-	sum(v,s,n);
+	scanArray(array,n);
+	csCons(array,csArray,n);
 	
-		
-	for(i=0;i<n;i++)
-	{
-		printf("%d ",v[i]);
-	}
+	for(k=0;k<n;k++)
+		printf("%d ",array[k]);
 	printf("\n");
-	for(i=0;i<n;i++)
-	{
-		printf("%d ",s[i]);
-	}
-	
-	
-	/*	
-	scanf("%d",&q);
 	for(k=0;k<n;k++)
+		printf("%d ",csArray[k]);
+	printf("\n");
+
+	scanf("%d",&q);
+	for(k=0;k<q;k++)
 	{
 		scanf("%d %d",&i,&j);
-		printf("%d\n",interval(s,i,j));
+		printf("%d\n",csQuery(csArray,i,j));
 	}
-	*/
-	
-	return 0;	
+
 }
 
-void sum(int *array,int *soma,int n)
+void scanArray(int *array,int n)
 {
 	int i;
 	for(i=0;i<n;i++)
-	{
-		soma[i] = soma[i-1] + array[i];
-	}
-	
-}
-int interval(int s[],int i,int j)
-{
-	return (s[j+1] - s[i]);
+		scanf("%d",&array[i]);
 }
 
+void csCons(int *array,int *csArray,int n)
+{
+	int i;
+	csArray[0] = array[0];
+	for(i=1;i<n;i++)
+		csArray[i] = array[i] + csArray[i-1];
+
+}
+
+int csQuery(int *csArray,int i ,int j)
+{
+	return (csArray[j] - csArray[i-1]);
+}
