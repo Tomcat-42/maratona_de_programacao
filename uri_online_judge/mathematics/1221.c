@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 //array 'booleano' dos números até n, com tamanho maximo de 2³¹-1 já inicializado com todas as posições 0
-char nums[2147483649];
+char nums[2222222222];
 
 //retorna true se n for primo, senão false
 char crivo(unsigned long int n);

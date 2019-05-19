@@ -3,7 +3,7 @@
 #include <stdio.h>
 #define I 12 
 #define J 12
-#define COND (i<j)
+#define COND ((i+j)<I-1)
 
 typedef struct
 {

@@ -23,7 +23,7 @@ int crivo(int n)
 {
 	int i,j;
 
-	//zero e um são primos
+	//zero e um não são primos
 	nums[0]=nums[1]=1;
 	for(i=2;i*i<=n;i++)
 		if(!nums[i])
