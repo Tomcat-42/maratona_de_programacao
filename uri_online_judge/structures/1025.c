@@ -1,74 +1,87 @@
 #include <stdio.h>
-#define MAX_INPUT 10001
+#include <stdlib.h>
+
+//busca binária(adaptada para retornar a 1° ocorrência do alvo no conjunto)
+int busca(int *array, int low,int high, int alvo);
+//função de comparação auxiliar para o qsort
+int cmp(const void *a,const void *b);
+
 int main()
 {
+	//array da bolinhas, número de bolinhas
+	int marbles[10000],n_marbles;
+	//número de buscas, valor da busca, e variável do resultado da busca
+	int n_cons,cons,cons_atual;
 	//contadores
-	int k,i,j,l=0,m=0;
-	//quantidade de bolinhas e quantidade de tentativas
-	int n,q;
-	//cada tentativa individual ,array dos números escritos nas bolinhas e array da posição da ocorrencia
-	int querry,numbers[MAX_INPUT],ocorrencias[MAX_INPUT],found[MAX_INPUT];
-	//array dos números não encontrados 
-	int nofound[]={};
-
-	for(k=1;k<=65;k++)
+	int i,j=0,k;
+	
+	//lê o n° de bolinhas e o número de consultas até ser diferente de 0
+	while(scanf("%d %d",&n_marbles,&n_cons)&&(n_marbles||n_cons))
 	{
-		scanf("%d %d",&n,&q);
-		if(!n && !q)
-		{
-			break;
-		}
-
-		l=0;
-		m=0;
-
-		for(i=0;i<n;i++)
-		{
-			scanf("%d",&numbers[i]);
-		}
-		//printf("aaaaaaaaaaaa\n");
-		for(j=0;j<q;j++)
-		{
-			scanf("%d",&querry);
-			for(i=0;i<n;i++)
-			{
-
-				//printf("NUMBER %d QUERRY %d\n",numbers[i],querry);
-				
-				if(querry == numbers[i])
-				{
-					//printf("%d == %d @ %d\n",querry,numbers[i],i+2);
-						
-					found[l] = numbers[i];
-					ocorrencias[l++] = i+2;
-					break;
-					
-				}
-				else
-				{
-					//printf("%d != %d @ %d\n",querry,numbers[i],i+2);
-					//nofound[m++] = numbers[i];
-					//printf("%d %d\n",m++,numbers[i]);
-
-
-				}
-
-			}
-		}
-		printf("aaaaaaaaaaaaaaaa\n");
-		//printf("%d %d\n",found[0],ocorrencias[0]);
+		//contador do caso de teste atual
+		j++;
 		
-
-		for(i=0;i<l-1;i++)
+		//lê cada bolinha
+		for(i=0;i<n_marbles;i++)
+			scanf("%d",&marbles[i]);
+		
+		//ordena as bolinhas
+		qsort(marbles,n_marbles,sizeof(int),cmp);
+	
+		printf("CASE# %d:\n",j);
+		for(k=0;k<n_cons;k++)
 		{
-			printf("%d found @ %d\n",found[i],ocorrencias[i]);
+			//lê a busca
+			scanf("%d",&cons);
+			//armazena o resultado
+			cons_atual=busca(marbles,0,n_marbles,cons);
+			
+			//se foi encontrado a bolinha(!=-1)	
+			if(cons_atual>=0)
+				printf("%d found at %d\n",cons,cons_atual+1);
+			//caso não foi encontrada
+			else
+				printf("%d not found\n",cons);
 		}
-		for(i=0;i<=m;i++)
-		{
-			printf("%d !found\n",nofound[i]);
-		}
-		
-		
-		
 	}
+}
+
+int busca(int *array, int low,int high, int alvo)
+{
+	if(high>=low)
+	{
+		int mid=low+(high-low)/2;
+		//se mid==0 o array tem uma só posição
+		//retorna a busca somente se não tiver um resultado igual no array[mid-1]	
+		if((mid==0 || alvo > array[mid-1]) && array[mid]==alvo) return mid;
+		else if(alvo>array[mid]) return busca(array,mid+1,high,alvo);
+		else return busca(array,low,mid-1,alvo);
+	}
+	return -1;
+}
+
+/*
+int busca(int *array, int low,int high, int alvo)
+{
+	if(high>=low)
+	{
+		int i,mid=low+(high-low)/2;
+		if(array[mid]==alvo)
+		{
+			for(i=mid-1;i>=0;i--)
+				if(array[i]!=alvo)
+					return i+1;
+		}
+		else if(alvo<array[mid]) 
+			return busca(array,low,mid-1,alvo);
+		else 
+			return busca(array,mid+1,high,alvo);
+	}	
+	return -1;
+}
+*/
+
+int cmp(const void *a,const void *b)
+{
+	return(*(int *)a - *(int *)b);
 }

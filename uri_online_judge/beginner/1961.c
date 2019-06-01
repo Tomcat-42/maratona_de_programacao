@@ -1,34 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int resul(int pulo,int *canos,int n_canos);
+
 int main()
 {
-	int pulo=0,n_canos=0,i,end=1,alt_canos[99];
-	
-	scanf("%d\n%d",&pulo,&n_canos);
+	int pulo,canos[100],n_canos,i;
+	scanf("%d %d",&pulo,&n_canos);
+	for(i=0;i<n_canos;i++)
+		scanf("%d",&canos[i]);
+	printf("%s\n",(resul(pulo,canos,n_canos))?("YOU WIN"):("GAME OVER"));
+}
 
-	for(i=0 ; i<n_canos ; i++)
+int resul(int pulo,int *canos,int n_canos)
+{
+	if(n_canos==1)
 	{
-		scanf("%d",&alt_canos[i]);
+		if(abs(canos[n_canos]-canos[n_canos-1])>pulo)
+			return 0;
+		else
+			return 1;
 	}
+		
+	if(abs(canos[n_canos-1]-canos[n_canos-2])>pulo)
+		return 0;
 	
-	for(i=1 ; i<n_canos ; i++)
-	{
-		
-		
-		if(abs(alt_canos[i] - alt_canos[i - 1]) > pulo)
-		{
-			end = 0;	
-		}
-	}
-	
-	if(end)
-	{
-		printf("YOU WIN\n");
-	}
-	else
-	{
-		printf("GAME OVER\n");
-	}
-		
+	return(resul(pulo,canos,n_canos-1));
 }

@@ -1,6 +1,6 @@
 //Pablo AS Hugen
 //Printa uma matriz de acordo com(?)
-//**OBS: Quem estiver pra tentar entender esse código DESISTA, nem eu sei como eu fiz
+//**OBS: Quem estiver pra tentar entender esse código DESISTA, nem sei como eu fiz
 #include <stdio.h>
 #define ORDEM_MAX 100
 

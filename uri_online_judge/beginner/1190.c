@@ -4,7 +4,7 @@
 #include <math.h>
 #define I 12 
 #define J 12
-#define COND ((j<i)&&((i+j)>I-1))
+#define COND ((j>i)&&((i+j)>I-1))
 
 typedef struct
 {
