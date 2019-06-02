@@ -65,22 +65,22 @@ int busca(int *array, int low,int high, int alvo)
 {
 	if(high>=low)
 	{
-		int i,mid=low+(high-low)/2;
-		if(array[mid]==alvo)
+		int i,mid =(high+low)/2;
+		if((mid==0||alvo>array[mid-1])&&array[mid]==alvo) //return mid;
 		{
-			for(i=mid-1;i>=0;i--)
-				if(array[i]!=alvo)
-					return i+1;
+			while(array[mid]==alvo)
+				mid--;
+			return mid;
 		}
-		else if(alvo<array[mid]) 
-			return busca(array,low,mid-1,alvo);
-		else 
-			return busca(array,mid+1,high,alvo);
-	}	
+		else if(alvo>array[mid])
+			return(busca(array,mid+1,high,alvo));
+		else
+			return(busca(array,low,mid-1,alvo));
+
+	}
 	return -1;
 }
 */
-
 int cmp(const void *a,const void *b)
 {
 	return(*(int *)a - *(int *)b);
