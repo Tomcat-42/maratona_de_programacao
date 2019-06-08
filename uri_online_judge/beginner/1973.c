@@ -1,37 +1,66 @@
 #include <stdio.h>
 
+typedef struct
+{
+	long long int flag_visitado,carneiros;
+}estrela;
+
+estrela estrelas[1000001];
+
 int main()
 {
-	long long int estrelas[1000000],n,sum=0;
-	int i,count=0,passo=1;
+	long long int n,sum=0,i,count=0;
 	
-	scanf("%lld",&n);
+	scanf("%llu",&n);
 	for(i=0;i<n;i++)
-		scanf("%lld",&estrelas[i]);
+	{
+		scanf("%llu",&estrelas[i].carneiros);
+		estrelas[i].flag_visitado = 0;
 
-	for(i=0;;i+=passo)
+	}
+
+	for(i=0;;)
 	{
 
-		if((estrelas[i])%2)
-			passo=1;
+		if((estrelas[i].carneiros)%2)
+		{
+			estrelas[i].flag_visitado=1;
+			if(estrelas[i].carneiros)
+				estrelas[i].carneiros--;
+			i++;
+			if(n==i) break;
+		}
 		else
-			passo=-1;	
-		
-		printf("%d\n",i);	
-		
-		if(estrelas[i])
-			estrelas[i]--;
-		
-		if((estrelas[i])%2)
-			count++;
-		
-		if(i<0 || n<=i)
-			break;
+		{
+			estrelas[i].flag_visitado=1;
+			if(estrelas[i].carneiros)
+				estrelas[i].carneiros--;
+			i--;
+			if(i<0) break;
+		}
+			
 
 	}
 	
+	/*		
 	for(i=0;i<n;i++)
-		sum += estrelas[i];
+	{
+		printf("%lld ",estrelas[i].carneiros);
 
-	printf("%d %lld\n",count,sum);
+	}
+	printf("\n");
+	for(i=0;i<n;i++)
+	{
+		printf("%llu ",estrelas[i].flag_visitado);
+
+	}
+	printf("\n");
+	*/
+
+	for(i=0;i<n;i++)
+	{
+		sum += estrelas[i].carneiros;
+		count+=estrelas[i].flag_visitado;
+	}
+	printf("%llu %llu\n",count,sum);
 }

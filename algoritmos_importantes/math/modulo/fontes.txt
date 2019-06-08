@@ -1,0 +1,5 @@
+https://www.urionlinejudge.com.br/judge/pt/problems/view/1837
+https://proofwiki.org/wiki/Division_Theorem
+https://en.wikipedia.org/wiki/Division_algorithm#Division_by_repeated_subtraction
+https://stackoverflow.com/questions/13683563/whats-the-difference-between-mod-and-remainder
+https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/divmodnote-letter.pdf
