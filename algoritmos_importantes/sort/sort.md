@@ -22,9 +22,9 @@ Disponível no arquivo de mesmo nome no diretório.
 
 ### Complexidade de tempo:  
 
-**Média**: *O($n^2$)*  
+**Média**: *O(n^2)*  
 
-**Pior Caso**: *O($n^2$)* , ocorre quando a estrutura está ordenada de maneira inversa ao critério utilizado.  
+**Pior Caso**: *O(n^2)* , ocorre quando a estrutura está ordenada de maneira inversa ao critério utilizado.  
 
 **Melhor Caso**: *O(n)* , ocorre quando a estrutura já está ordenada.  
 
@@ -33,7 +33,7 @@ Disponível no arquivo de mesmo nome no diretório.
 * [Vídeo](https://youtu.be/nmhjrI-aW5o)
   
    
-## ~Cocktail~ Shaker Sort  
+## (Cocktail) Shaker Sort  
 
 ### Descrição:  
 
@@ -45,9 +45,9 @@ Disponível no arquivo de mesmo nome no diretório.
 
 ### Complexidade de tempo:  
 
-**Média**: *O($n^2$)*  
+**Média**: *O(n^2)*  
 
-**Pior Caso**: *O($n^2$)* , ocorre quando a estrutura está ordenada de maneira inversa ao critério utilizado.  
+**Pior Caso**: *O(n^2)* , ocorre quando a estrutura está ordenada de maneira inversa ao critério utilizado.  
 
 **Melhor Caso**: *O(n)* , ocorre quando a estrutura já está ordenada.  
 
