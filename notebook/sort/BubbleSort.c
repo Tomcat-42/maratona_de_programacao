@@ -8,8 +8,11 @@ int cmp(int a,int b);
 //função de troca
 void swp(int *a,int *b);
 
-//implementação do bubblesort
+//implementação iterativa do bubblesort
 void bsort(int *arr,int n);
+
+//implementação recurviva do bubblesort
+void bsort_rec(int *arr,int n);
 
 //printa um array de tamanho n
 void arrayPrint(int *array,int n);
@@ -29,6 +32,8 @@ int main()
 	arrayPrint(array,n);
 	
 	bsort(array,n);
+	//bsort_rec(array,n);
+	
 	printf("\nOrdenado:\n");
 	arrayPrint(array,n);
 
@@ -37,25 +42,50 @@ int main()
 void bsort(int *arr,int n)
 {
 	//flag 'booleana' para marcar se houve alguma troca em uma iteração
-	int sort=1,i;
+	int sort=1;
+
 	//caso sort continuar como zero o loop quebra, logo o array está ordenado
-	while(sort)
+	for(int i=0;(i<n-1 && sort);i++)
 	{
 		sort=0;
-		//itera o array da 2° posição até a última, trocando elementos adjacentes se necessário
-		for(i=1;i<n-1;i++)
-			if(cmp(arr[i],arr[i-1]))
+		//itera o array da 1° posição até a penúltima, trocando elementos adjacentes se necessário,os últimos 'i' elementos já estão ordenados
+		for(int j=0;j<n-1-i;j++)
+			if(cmp(arr[j],arr[j+1]))
 			{
-				swp(&arr[i],&arr[i-1]);
+				swp(&arr[j],&arr[j+1]);
 				sort=1;
 			}
 	}
 }
 
+void bsort_rec(int *arr,int n)
+{
+
+	//Caso base,os últimos n-1 elementos já estão ordenados
+	if(n==1) return;
+	
+	//flag 'booleana' para marcar se houve alguma troca em uma iteração
+	int sort=0;
+
+	//itera o array da 1° posição até a penúltima, trocando elementos adjacentes
+	for(int i=0;i<n-1;i++)
+		if(cmp(arr[i],arr[i+1]))
+		{
+			swp(&arr[i],&arr[i+1]);
+			sort=1;
+		}
+	
+	//Não houve nenhuma troca na iteração,logo o array está ordenado
+	if(!sort) return;
+	
+	//O último elemento está no local  correto
+	return (bsort_rec(arr,n-1));
+}
+
 int cmp(int a,int b)
 {
 	//critério de comparação
-	if(a<b)return 1;
+	if(a>b)return 1;
 	else return 0;
 }
 
@@ -68,14 +98,12 @@ void swp(int *a,int *b)
 
 void arrayPrint(int *array,int n)
 {
-	int i;
-	for(i=0;i<n;i++)
+	for(int i=0;i<n;i++)
 		printf("%s%d%s",(i==0)?("["):(""),array[i],(i<n-1)?(","):("]\n"));
 }
 
 void arrayScan(int *array,int n)
 {
-	int i;
-	for(i=0;i<n;i++)
+	for(int i=0;i<n;i++)
 		scanf("%d",&array[i]);
 }
