@@ -10,10 +10,11 @@ Como o nome sugere, esses algoritmos *ordenam* uma dada estrutura de dados com b
 * [Video intuitivo](https://youtu.be/kPRA0W1kECg)
 
 TODO:
+
 - [x] Bubble Sort
 - [x] Shaker Sort
 - [x] Selection Sort
-- [ ] Insertion Sort
+- [x] Insertion Sort
 - [ ] Shell Sort
 - [ ] Merge Sort
 - [ ] Quick Sort
