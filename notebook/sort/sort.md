@@ -15,7 +15,7 @@ TODO:
    - [x] Shaker Sort
    - [x] Selection Sort
    - [x] Insertion Sort
-   - [ ] Shell Sort
+   - [x] Shell Sort
    - [ ] Merge Sort
    - [ ] Quick Sort
 
@@ -142,12 +142,13 @@ TODO:
    
    Sobretudo uma variação do Insertion Sort.A idéia principal do Shell sort é a troca de elementos distantes, h-ordenando(1) o array para um valor grande de h, à medida que ele vai diminuindona proporção(2) definida.Assim, quando h=1, é realizado um Insertion sort comum, porém necessitando de muito menos trocas.
 
-   (1) Um array é dito h-ordenado quando todas as sublistas de i + múltiplos de h está ordenada.
-   (2) O aspecto mais importante do Shell sort é o uso de diferentes [proporções](http://en.wikipedia.org/wiki/Shellsort#Gap_sequences)(ou lacunas) na h-ordenação do array.Alguns são:
-       *Incremento original de D.L. Shell: N/2^k (divisões consecutivas por 2);
-       *Incremento de Hibbard: 2^k-1 (potências de 2 menos um);
-       *Incremento de Knuth: (3^k-1)/2 (potências de 3 menos um sobre dois)
-       *Incremento de Sedgewick: {1, 5, 19, 41, 109, ...} (sequência definida experimentalmente)
+   (1) Um array é dito h-ordenado quando todas as sublistas de i + múltiplos de h está ordenada.\ 
+   (2) O aspecto mais importante do Shell sort é o uso de diferentes [proporções](http://en.wikipedia.org/wiki/Shellsort#Gap_sequences)(ou lacunas) na h-ordenação do array.Alguns são:\
+
+       *Incremento original de D.L. Shell: N/2^k (divisões consecutivas por 2);\
+       *Incremento de Hibbard: 2^k-1 (potências de 2 menos um);\
+       *Incremento de Knuth: (3^k-1)/2 (potências de 3 menos um sobre dois)\
+       *Incremento de Sedgewick: {1, 5, 19, 41, 109, ...} (sequência definida experimentalmente)\
    
 ### Exemplo:  
 
