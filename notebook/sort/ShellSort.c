@@ -1,6 +1,15 @@
 //Exemplo de implementação do Shell Sort em arrays de inteiros em C
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+
+//Número máximo de proporções 
+#define MAX_GAP 100
+
+//funções de incremento
+#define SHELL(n, k) (n)/(int)pow(2.0, (k))
+#define HIBBARD(k) (int)pow(2.0, (k)) - 1
+#define KNUTH(k) ((int)pow(3.0, (k)) - 1)/2
 
 //função de comparação
 int cmp(int a,int b);
@@ -8,11 +17,11 @@ int cmp(int a,int b);
 //função de troca
 void swp(int *a,int *b);
 
+//função de incremento
+void gap(int n,int k);
+
 //implementação iterativa do Insertion Sort
 void shellsort(int *arr,int n);
-
-//implementação recursiva do Insertion Sort
-// void insertsort_rec(int *arr,int n);
 
 //printa um array de tamanho n
 void arrayPrint(int *array,int n);
@@ -32,7 +41,6 @@ int main()
 	arrayPrint(array,n);
 	
 	shellsort(array,n);
-	//insertsort_rec(array,n);
 	
 	printf("\nOrdenado:\n");
 	arrayPrint(array,n);
@@ -43,45 +51,33 @@ void shellsort(int *arr,int n)
 {
 	//auxiliar para guardar o elemento a ser inserido
 	int aux;
-	int i, j, gap;
-
-	//itera pelos elementos do array
-	for(i=1;i<n;i++)
+	int i, j, k, gaps[MAX_GAP];
+	
+	// Gera a sequência de incrementos
+	for(i=0; HIBBARD(i+1)<=n; i++)
+		gaps[i] = HIBBARD(i+1);
+	
+	// mostra os incrementos usados
+	printf("Incrementos: ");
+	for(j=i-1;j>=0;j--)
+		printf("%d ", gaps[j]);
+	printf("\n");
+	
+	// h-ordena o array
+	for(i-=1; i>=0; i--)
 	{
-		aux = arr[i];
-		
-		//move os elementos menores (ou maiores) que aux para frente
-		for(j=i-1;(j>=0)&&(!cmp(aux,arr[j]));j--)
-			arr[j+1] = arr[j];
-		
-		//insere o elemento na posição correta
-		arr[j+1] = aux;
+		for(j=gaps[i]; j<n; j++)
+		{
+			aux = arr[j];
+			for(k=j; (k>=gaps[i])&&(!cmp(aux, arr[k-gaps[i]])); k-=gaps[i])
+				arr[k] = arr[k-gaps[i]];
+
+			arr[k] = aux;
+
+		}
+		arrayPrint(arr,n);
 	}
 }
-
-/*
-void insertsort_rec(int *arr,int n)
-{
-
-	//Caso base,o subarray dos elementos desordenados tem uma posição
-	if(n==1) return;
-	
-	//guarda o index do valor mínimo do subarray
-	int min_index = n-1;
-	
-	//procura pelo menor valor no subarray
-	for(int j=n-1;j>=0;j--)
-		if(cmp(arr[j],arr[min_index]))
-			min_index = j;
-		
-	//troca o menor elemento com o primeiro elemento do subarray dos desordenados	
-	swp(&arr[n-1],&arr[min_index]);
-	
-	//aumenta o limite do arrays dos elementos ainda não ordenados
-	return(selsort_rec(arr,n-1));
-	
-}
-*/
 
 int cmp(int a,int b)
 {
