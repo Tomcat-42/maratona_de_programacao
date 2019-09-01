@@ -16,7 +16,7 @@ TODO:
    - [x] Selection Sort
    - [x] Insertion Sort
    - [x] Shell Sort
-   - [ ] Merge Sort
+   - [x] Merge Sort
    - [ ] Quick Sort
 
   
@@ -170,3 +170,55 @@ TODO:
 
    * [Vídeo 1](https://youtu.be/CmPA7zE8mx0)
    * [Vídeo 2](https://youtu.be/SHcPqUe2GZM)
+
+## Merge Sort
+
+### Descrição:  
+   
+  Algoritmo do paradigma "Dividir e conquistar".Destarte, o array original de tamanho *n* é dividido em dois subarrays de intervalos [0, *n/2*] e (*n/2*, *n-1*] e então a função se chama recursivamente para as duas metades até que um dos subarrays tenha tamanho 1.Assim, quando um subarray unitário é encontrado a função *merge()* é chamada para fundir dois subarrays em um maior ordenado, começando pelos subarrays unitários e terminando nas duas metades originais fundidas no array original agora ordenado.
+
+### Exemplo:  
+
+   Disponível no arquivo de mesmo nome no diretório.
+
+### Complexidade de tempo:  
+
+   O Merge sort tem a mesma complexidade de tempo para os três casos - melhor, média e pior - pois sempre divide o array recursivamente
+   
+   **Geral**: *O(nlog(n))*  
+
+### Observações e Links úteis:  
+
+   O Merge sort sobretudo é útil na ordenação de listas encadeadas, pois não necessita de tantos acessos randômicos na estrutura como o seu rival mais próximo, o *quick sort*.
+
+   * A implementação vanilla é **estável**(mantém a ordem dos elementos com chaves de ordenação iguais).
+   * Pela sua natureza recursiva, o Merge sort necessita de O(n) espaço auxiliar.
+
+   * [Vídeo 1](https://youtu.be/XaqR3G_NVoo)
+   * [Vídeo 2](https://youtu.be/JSceec-wEyw)
+
+## Merge Sort
+
+### Descrição:  
+   
+  Algoritmo do paradigma "Dividir e conquistar".Destarte, o array original de tamanho *n* é dividido em dois subarrays de intervalos [0, *n/2*] e (*n/2*, *n-1*] e então a função se chama recursivamente para as duas metades até que um dos subarrays tenha tamanho 1.Assim, quando um subarray unitário é encontrado a função *merge()* é chamada para fundir dois subarrays em um maior ordenado, começando pelos subarrays unitários e terminando nas duas metades originais fundidas no array original agora ordenado.
+
+### Exemplo:  
+
+   Disponível no arquivo de mesmo nome no diretório.
+
+### Complexidade de tempo:  
+
+   O Merge sort tem a mesma complexidade de tempo para os três casos - melhor, média e pior - pois sempre divide o array recursivamente
+   
+   **Geral**: *O(nlog(n))*  
+
+### Observações e Links úteis:  
+
+   O Merge sort sobretudo é útil na ordenação de listas encadeadas, pois não necessita de tantos acessos randômicos na estrutura como o seu rival mais próximo, o *quick sort*.
+
+   * A implementação vanilla é **estável**(mantém a ordem dos elementos com chaves de ordenação iguais).
+   * Pela sua natureza recursiva, o Merge sort necessita de O(n) espaço auxiliar.
+
+   * [Vídeo 1](https://youtu.be/XaqR3G_NVoo)
+   * [Vídeo 2](https://youtu.be/JSceec-wEyw)
