@@ -17,7 +17,7 @@ TODO:
    - [x] Insertion Sort
    - [x] Shell Sort
    - [x] Merge Sort
-   - [ ] Quick Sort
+   - [x] Quick Sort
 
   
 ## Bubble Sort
@@ -183,7 +183,7 @@ TODO:
 
 ### Complexidade de tempo:  
 
-   O Merge sort tem a mesma complexidade de tempo para os três casos - melhor, média e pior - pois sempre divide o array recursivamente
+   O Merge sort tem a mesma complexidade de tempo para os três casos - melhor, média e pior - pois sempre divide o array recursivamente.
    
    **Geral**: *O(nlog(n))*  
 
@@ -192,16 +192,25 @@ TODO:
    O Merge sort sobretudo é útil na ordenação de listas encadeadas, pois não necessita de tantos acessos randômicos na estrutura como o seu rival mais próximo, o *quick sort*.
 
    * A implementação vanilla é **estável**(mantém a ordem dos elementos com chaves de ordenação iguais).
-   * Pela sua natureza recursiva, o Merge sort necessita de O(n) espaço auxiliar.
+   * Pela sua natureza recursiva e pela funçao *merge()*, o Merge sort necessita de O(n) espaço auxiliar.
 
    * [Vídeo 1](https://youtu.be/XaqR3G_NVoo)
    * [Vídeo 2](https://youtu.be/JSceec-wEyw)
 
-## Merge Sort
+
+## Quick Sort
 
 ### Descrição:  
    
-  Algoritmo do paradigma "Dividir e conquistar".Destarte, o array original de tamanho *n* é dividido em dois subarrays de intervalos [0, *n/2*] e (*n/2*, *n-1*] e então a função se chama recursivamente para as duas metades até que um dos subarrays tenha tamanho 1.Assim, quando um subarray unitário é encontrado a função *merge()* é chamada para fundir dois subarrays em um maior ordenado, começando pelos subarrays unitários e terminando nas duas metades originais fundidas no array original agora ordenado.
+  Assim como o Merge sort, é um algoritmo do paradigma "Dividir e conquistar".No Quick sort, é escolhido elemento como pivô(1) e então o array é particionado(1) em volta dele, em seguida são feitas chamadas recursivas da função para os subarrays à esquerda e direita do pivô.Dessa forma, quando todas as chamadas recursivas encontram um subarray unitário o array está ordenado.
+
+  (1) O processo chave para o Quick sort é o processo de particionamento, que consiste em escolher um pivô e colocar todos os elementos menores que o pivô à sua esquerda e os maiores à sua direita.Existem diversos algoritmos de particionamento que escolhem um ou mais pivôs de maneira diferente, alguns são:
+
+	*Particionamento de Lomuto: Escolhe o último elemento como pivô, o algoritmo mantém o index *i* enquanto varre o array com um index *j* tal que no final os elementos [low, i) são menores que o pivô e os elemementos [i,j] são maiores ou iguais que o pivô.Usando esse esquema, a complexidade de tempo do Quick sort quando o array já está ordenado cai para *O(n^2)*.
+
+	*Particionamento Orignal de C.A.R. Hoare: Escolhe o primeiro elemento como pivô, e usa dois índices - um que aponta para o começo do array e outro para o final - que se movem em direção um ao outro até que é detectada uma inversão de elementos, que então são trocados.Quando os índices se encontram, o algoritmo para e retorna o índice final.É mais eficiente que o partionamento de Lomuto, uma vez que faz e média 3 vezes menos trocas que ele, porém também decai para a complexidade de tempo *O(n^2)* se o array já está ordenado.
+
+	Existem outros particionamentos - como a mediana-de-três, pivô randômico, etc- que produzem resultados melhores em alguns casos específicos.
 
 ### Exemplo:  
 
@@ -209,16 +218,21 @@ TODO:
 
 ### Complexidade de tempo:  
 
-   O Merge sort tem a mesma complexidade de tempo para os três casos - melhor, média e pior - pois sempre divide o array recursivamente
+   A complexidade de tempo do Quick Sort nos casos extremos depende da posição do pivô encontrado.
    
-   **Geral**: *O(nlog(n))*  
+   **Média**: *O(nlog(n))*
+
+   **Melhor Caso**: *(nlog(n))*, ocorre quando os pivôs encontrados são os elementos médios dos subarrays.
+
+   **Piores Casos**: *(O(n^2))*, ocorre quando os pivôs encontrados estão nas bordas dos subarray,ou seja, o array já está ordenado(ou quase ordenado), está ordenado de maneira inversa, ou contém muitos elementos repetidos.
 
 ### Observações e Links úteis:  
 
-   O Merge sort sobretudo é útil na ordenação de listas encadeadas, pois não necessita de tantos acessos randômicos na estrutura como o seu rival mais próximo, o *quick sort*.
+   O Quick sort é preferido em contrapartida ao Merge sort para estruturas contíguas na memória, como arrays.
 
-   * A implementação vanilla é **estável**(mantém a ordem dos elementos com chaves de ordenação iguais).
-   * Pela sua natureza recursiva, o Merge sort necessita de O(n) espaço auxiliar.
+   * A implementação vanilla usando a maioia dos algoritmos de particionamento(como o de Lomuto e o de Hoare) **não** é **estável**(**não** mantém a ordem dos elementos com chaves de ordenação iguais).
+   * Pode ser modificado a fim de se tornar estável.
+   * Pela sua natureza recursiva, o Quick sort necessita de espaço auxiliar apenas para chamadas recursivas.
 
-   * [Vídeo 1](https://youtu.be/XaqR3G_NVoo)
-   * [Vídeo 2](https://youtu.be/JSceec-wEyw)
+   * [Vídeo 1](https://youtu.be/ywWBy6J5gz8)
+   * [Vídeo 2](https://youtu.be/PgBzjlCcFvc)
