@@ -1,0 +1,112 @@
+#include<stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int cont = 0;
+
+// função de comparação
+int cmp(int a,int b);
+
+// função de troca
+void swp(int *a,int *b);
+
+// implementação recursiva do Merge Sort
+void mergeSort(int *arr,int low, int high);
+
+/*função de fundição do merge sort, ordena dois subarrays de arr
+ * [low,mid] e (mid,high]*/
+void merge(int *arr,int low, int mid, int high);
+
+// printa um array de tamanho n
+void arrayPrint(int *array,int n);
+
+// lê um array de tamanho n
+void arrayScan(int *array,int n);
+
+int main()
+{
+	int n;
+    int v[100000];
+
+	scanf("%d", &n);
+
+	arrayScan(v,n);
+	mergeSort(v,0, n-1);
+
+    printf("%d\n", cont);
+	
+    return 0;
+}
+
+void merge(int *arr,int low, int mid, int high)
+{
+	// tamanho dos sub arrays
+	int sizeLow = (mid-low)+1, sizeHigh = (high - mid);
+	// subarrays temporários
+	int arrLow[sizeLow], arrHigh[sizeHigh];
+
+	//Variáveis auxiliares
+	int i, j, k;
+	
+	// Copia os valores do array original para os temporários
+	for(i=0; i<sizeLow; i++)
+		arrLow[i] = arr[low + i];
+	for(j=0; j<sizeHigh; j++)
+		arrHigh[j] = arr[mid + 1 + j];
+
+	// Funde os arrays temporários de volta no array original
+	for(i=j=0, k=low; i<sizeLow && j<sizeHigh; k++)
+		if(!cmp(arrLow[i], arrHigh[j]))
+			arr[k] = arrLow[i++];
+		else
+		{
+            arr[k] = arrHigh[j++];
+            cont += (mid+1) - (low+i);
+        }	
+
+	// ao final do passo anterior pode ter sobrado elementos em um dos subarrays
+	while(i<sizeLow)
+		arr[k++] = arrLow[i++];
+	
+	while(j<sizeHigh)
+		arr[k++] = arrHigh[j++];
+}
+
+void mergeSort(int *arr,int low, int high)
+{
+	// Caso base da recursão
+	if(low<high)
+	{
+		// Calcula o meio do array
+		int mid = (low+high)/2;
+
+		// Chama recursivamente mergeSort() para os subarrays da esquerda e direita
+		mergeSort(arr, low, mid);
+		mergeSort(arr, mid+1, high);
+
+		// Funde os subarrays para ordená-los
+		merge(arr, low, mid, high);
+	}
+}
+
+int cmp(int a,int b)
+{
+	//critério de comparação
+	if(a>b)return 1;
+	else return 0;
+}
+
+void swap(int *a,int *b)
+{
+	int tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+void arrayScan(int *array,int n)
+{
+    int i;
+    
+	for(i=0;i<n;i++)
+		scanf("%d",&array[i]);
+}
