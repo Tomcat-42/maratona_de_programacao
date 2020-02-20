@@ -6,7 +6,7 @@ Dado um retângulo com a coordenada do vértice inferior esquerdo e as suas dime
 
 Visualização do retângulo:
 
-[rect](./rectcircle.png)
+![rect](rectcircle.png)
 
 Para o círculo se interseccionar com o retângulo, seu centro deve estar dentro da área do retângulo(vermelha) ou a uma distância máxima de até seu raio do retângulo(parte laranja). Assim, as seguintes condições devem ser checadas:
 
