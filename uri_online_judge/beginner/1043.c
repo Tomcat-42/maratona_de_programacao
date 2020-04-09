@@ -4,7 +4,7 @@
 int main()
 {
 	float a,b,c,trap,tri;
-	scanf("%f %f %f",&a,&b,&c);
+	    scanf("%f %f %f",&a,&b,&c);
 	if (((a < b + c ) && ((b < c + a) && (c < a + b))))
 	{
 		tri = (a + b + c );
