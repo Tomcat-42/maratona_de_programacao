@@ -21,6 +21,8 @@ void shellsort(int *arr, int n) {
 }
 
 int main(int argc, char **argv) {
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(NULL);
     int notas[100], n, x;
 
     while (scanf("%d %d", &n, &x)!=EOF) {
