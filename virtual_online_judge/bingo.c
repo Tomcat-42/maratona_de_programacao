@@ -1,0 +1,1 @@
+../uri_online_judge/ad-hoc/1136.c
